@@ -1,9 +1,10 @@
 # <center> Project Details </center>
 
-## <i> SEMESTER 04, B.Tech ICT - 2020, DAIICT </i>
+#### <center><i> SEMESTER 04, B.Tech ICT - 2020, DAIICT </i></center>
 
 ## <b> Project Name:</b>
-## <i> Canteen Management System </i>
+
+### <i> Canteen Management System </i>
 
 ## <b> Project By: </b>
 
