@@ -6,8 +6,8 @@ ODIR=obj
 LDIR=../lib
 LIBS=-lm
 
-_DEPS=myFunc.h
-_OBJ=main.o FuncDef.o
+_DEPS=
+_OBJ=Main.o
 
 DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS))
 OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
@@ -15,7 +15,7 @@ OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
 $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-../bin/main.out: $(OBJ)
+../bin/Main.out: $(OBJ)
 	gcc -o $@ $^ $(CFLAGS) $(LIBS)
 	
 .PHONY: clean
