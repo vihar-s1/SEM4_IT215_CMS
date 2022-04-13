@@ -17,3 +17,16 @@
 ### <i>202001156 - Ayush Kumar</i>
 
 ### <i>202001159 - Darpan </i>
+
+#
+## <b> </b>Project Structure: </b>
+
+<b>/bin</b> - <i> binary of executable file (.out / .exe) </i>
+
+<b>/include</b> - <i> header files to be included </i>
+
+<b>/lib</b> - <i> user defined libraries stored here </i>
+
+<b>/src</b> - <i> source code and makefile </i>
+
+<b>/src/obj</b> - <i> object files of the source code </i>
