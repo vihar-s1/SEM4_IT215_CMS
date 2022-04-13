@@ -12,7 +12,7 @@
 
 ### <i>202001110 - Vihar Shah</i>
 
-### <i>202001114 - Kavish Patel</i>
+### <i>202001114 - Kavish Shah</i>
 
 ### <i>202001156 - Ayush Kumar</i>
 
