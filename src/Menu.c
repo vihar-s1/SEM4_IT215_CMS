@@ -12,7 +12,7 @@ struct Menu_item
 };
 
 // menu[i][j] -> i is the canteen number and j the item.
-struct Menu_item menu[5][100];
+// struct Menu_item menu[5][100];
 
 void display_menu(int canteen_no)
 {
@@ -44,16 +44,19 @@ void order()
             {
                 add_to_bill(n, it_no - 1, qty);
             }
+            else{
+                printf("Enter a valid quantity\n");
+            }
         }
         else
         {
-            printf("Invalid input!");
+            printf("Enter a valid item number\n");
             return;
         }
     }
     else
     {
-        printf("Invalid input!");
+        printf("Enter a valid canteen number\n");
         return;
     }
 }

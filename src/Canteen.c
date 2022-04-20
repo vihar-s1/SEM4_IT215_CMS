@@ -26,3 +26,27 @@ int canteen_login(long ID, char* password)
     }
     return 1;
 }
+
+void edit_menu_items(int can_no){
+    int n;
+    do{
+        printf("Enter 1 to edit an item's name\nEnter 2 to edit an item's price\nEnter 3 to remove an item\nEnter 4 to replace an item\nEnter 5 to add a new item\nEnter 6 to stop editing\nEnter your choice: ");
+        cin>>n;
+        switch(n){
+            case 1:
+                {
+                    printf("Enter the item number whose name you want to edit: ");
+                    int no;
+                    cin>>no;
+                    if(no>0 && no<=items){
+                        char new_name[40];
+                        scanf("%s",new_name);
+                        canteens[can_no]->Menu[no-1]->name=new_name;
+                    }
+                    else{
+                        printf("Enter a valid item number\n");
+                    }
+                }
+        }
+    }while(n!=6);
+}
