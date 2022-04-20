@@ -6,8 +6,8 @@ ODIR=obj
 LDIR=../lib
 LIBS=-lm
 
-_DEPS=
-_OBJ=Main.o
+_DEPS=Canteen.h FileIO.h Menu.h
+_OBJ=Main.o Canteen.o Menu.o FileIO.o
 
 DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS))
 OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))

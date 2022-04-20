@@ -3,16 +3,8 @@
 #include <unistd.h>
 #include <string.h>
 
-struct Menu_item
-{
-    char name[40];
-    int price;
-    int current_order; // number of times the item is ordered by a particular customer
-    int total_order;   // total number of times the item is ordered by all customers
-};
-
-// menu[i][j] -> i is the canteen number and j the item.
-// struct Menu_item menu[5][100];
+#include "Menu.h"
+#include "Canteen.h"
 
 void display_menu(int canteen_no)
 {
@@ -20,7 +12,7 @@ void display_menu(int canteen_no)
     {
         for (int i = 0; i < 50; i++)
         {
-            printf("%d. %40s \t %3.2d\n", i + 1, menu[canteen_no - 1][i].name, menu[canteen_no - 1][i].price);
+            printf("%d. %40s \t %3.2d\n", i + 1, canteens[canteen_no - 1].Menu[i].name, canteens[canteen_no - 1].Menu[i].price);
         }
     }
 }
@@ -44,7 +36,8 @@ void order()
             {
                 add_to_bill(n, it_no - 1, qty);
             }
-            else{
+            else
+            {
                 printf("Enter a valid quantity\n");
             }
         }
@@ -63,33 +56,5 @@ void order()
 
 void add_to_bill(int can_no, int it_no, int qty)
 {
+    printf("Complete Function add_to_bill(int, int, int);");
 }
-
-/*#define S_SIZE 10000
-
-struct Student{
-    long int id;
-    char password[15];
-};
-
-struct Student students[S_SIZE][1];
-
-int student_login_func(struct Student** arr, long int id, char* passwd){
-    for(int i = 0; i < S_SIZE ; i++){
-        if(id==student_details[i].id){
-            if(strcmp(passwd==student_details[i].password)){
-                printf("Logged in successfully\n");
-                return 0;
-            }
-            else{
-                printf("Incorrect password\n");
-                return -1;
-            }
-        }
-    }
-    return 1;
-}
-
-int create_acc(long int id,char* passwd){
-    struct Student *new_stud = malloc( sieof(struct student_details) );
-}*/
