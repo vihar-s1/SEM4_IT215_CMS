@@ -14,7 +14,7 @@
 
 ### <i>202001114 - Kavish Shah</i>
 
-### <i>202001156 - Ayush Kumar</i>
+### <i>202001156 - Ayush Khamar</i>
 
 ### <i>202001159 - Darpan Radadiya</i>
 
