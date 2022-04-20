@@ -16,7 +16,7 @@
 
 ### <i>202001156 - Ayush Kumar</i>
 
-### <i>202001159 - Darpan </i>
+### <i>202001159 - Darpan Radadiya</i>
 
 #
 ## <b> </b>Project Structure: </b>
