@@ -1,0 +1,30 @@
+Canteen ID: 0
+Name: 
+Password: 
+Total Orders: 0
+Total Income: 0
+
+Canteen ID: 0
+Name: 
+Password: 
+Total Orders: 0
+Total Income: 0
+
+Canteen ID: 0
+Name: 
+Password: 
+Total Orders: 0
+Total Income: 0
+
+Canteen ID: 0
+Name: 
+Password: 
+Total Orders: 0
+Total Income: 0
+
+Canteen ID: 0
+Name: 
+Password: 
+Total Orders: 0
+Total Income: 0
+
