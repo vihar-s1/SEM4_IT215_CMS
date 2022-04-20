@@ -8,7 +8,8 @@ struct Canteen
     char password[15]; //* Canteen Login Password
 
     long total_orders;
-    // struct Menuitems Menu[50] //* Canteen Menu
+    long total_income;
+    // struct Menu_item Menu[50] //* Canteen Menu
 };
 
 // Global Definition
