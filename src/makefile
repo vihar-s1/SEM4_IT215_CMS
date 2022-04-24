@@ -21,7 +21,7 @@ $(ODIR)/%.o: %.c $(DEPS)
 %.a: $(OBJ)
 	ar rs $@ $^
 
-../bin/Main.out: $(OBJ) $(LIB)
+../bin/cms.out: $(OBJ) $(LIB)
 	gcc -o $@ $^ $(CFLAGS) $(LIBFLAG) -lm
 	
 .PHONY: clean
