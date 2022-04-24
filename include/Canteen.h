@@ -11,7 +11,7 @@ struct Canteen
 
     long total_orders;
     long total_income;
-    int items;
+    int items_avail;
     struct Menu_item Menu[100]; //* Canteen Menu
 };
 

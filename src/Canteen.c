@@ -42,7 +42,7 @@ void edit_menu_items(int can_no)
             printf("Enter the item number whose name you want to edit: ");
             int no;
             scanf("%d", &no);
-            if (no > 0 && no <= canteens[can_no].items)
+            if (no > 0 && no <= canteens[can_no].items_avail)
             {
                 char new_name[40];
                 scanf("%s", new_name);

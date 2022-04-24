@@ -10,8 +10,6 @@
 int main()
 {
     load_data();
-    printf("Hello World\n");
     save_data();
-    printf("Hello World\n");
     return 0;
 }

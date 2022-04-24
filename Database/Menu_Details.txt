@@ -1,0 +1,32 @@
+Canteen Index: 0
+Items Available: 3
+Spicy Ranch Pizza: 00350
+Margherita Pizza: 00380
+Hawaiian Pizza: 00420
+
+Canteen Index: 1
+Items Available: 3
+Veg Supreme Pizza: 00370
+Gobi Paratha: 00150
+Aloo Paratha: 00120
+
+Canteen Index: 2
+Items Available: 3
+Paneer Paratha: 00170
+Paneer Burger: 00050
+Momo Burger: 00050
+
+Canteen Index: 3
+Items Available: 3
+Club Sandwich: 00050
+Paneer Sandwich: 00060
+Falafel Sandwich: 00070
+
+Canteen Index: 4
+Items Available: 4
+Chicken Biryani: 00250
+Schezwan Biryani: 00200
+Veg Pulao: 00180
+Rajma Chawal: 00100
+
+EOF
