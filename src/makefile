@@ -4,19 +4,25 @@ CFLAGS=-pthread -I$(IDIR)
 
 ODIR=obj
 LDIR=../lib
-LIBS=-lm
 
 _DEPS=Canteen.h FileIO.h Menu.h
 _OBJ=Main.o Canteen.o Menu.o FileIO.o
+_LIBS=-L
 
 DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS))
 OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
 
+LIBFLAG=$(patsubst %,$(_LIBS)%,$(LDIR))
+LIB = $(patsubst %,$(LDIR)/%, lib_file.a)
+
 $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-../bin/Main.out: $(OBJ)
-	gcc -o $@ $^ $(CFLAGS) $(LIBS)
+%.a: $(OBJ)
+	ar rs $@ $^
+
+../bin/Main.out: $(OBJ) $(LIB)
+	gcc -o $@ $^ $(CFLAGS) $(LIBFLAG) -lm
 	
 .PHONY: clean
 clean:
