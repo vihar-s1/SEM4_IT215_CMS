@@ -2,35 +2,35 @@ Canteen Number: 0
 ID: 1
 Name: First Canteen
 Password: first_canteen@01
-Total Orders: 1
-Total Income: 10
+Total Orders: 0
+Total Income: 0
 
 Canteen Number: 1
 ID: 2
 Name: Second Canteen
 Password: second_canteen@02
-Total Orders: 10
-Total Income: 100
+Total Orders: 0
+Total Income: 0
 
 Canteen Number: 2
 ID: 3
 Name: third Canteen
 Password: third_canteen@03
-Total Orders: 100
-Total Income: 1000
+Total Orders: 0
+Total Income: 0
 
 Canteen Number: 3
 ID: 4
 Name: Fourth Canteen
 Password: fourth_canteen@04
-Total Orders: 10
-Total Income: 100
+Total Orders: 0
+Total Income: 0
 
 Canteen Number: 4
 ID: 5
 Name: Fifth Canteen
 Password: fifth_canteen@05
-Total Orders: 1
-Total Income: 10
+Total Orders: 0
+Total Income: 0
 
 EOF

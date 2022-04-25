@@ -19,6 +19,8 @@ struct Canteen
 // canteen[i] -> ith canteen
 struct Canteen canteens[5];
 
+void order(int);
+
 /*
 canteens[0]->Menu[0]->name = "Full Thaali";
 canteens[0]->Menu[0]->price = 53;
