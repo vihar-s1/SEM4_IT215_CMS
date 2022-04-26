@@ -2,8 +2,8 @@ Canteen Number: 0
 ID: 1
 Name: First Canteen
 Password: 1
-Total Orders: 0
-Total Income: 0
+Total Orders: 2
+Total Income: 760
 
 Canteen Number: 1
 ID: 2
