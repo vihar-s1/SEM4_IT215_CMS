@@ -62,6 +62,7 @@ int main()
             }
             else
                 run_canteen_ui(login + 1); // running using canteen user interface
+                getc(stdin);
             break;
 
         case 2:

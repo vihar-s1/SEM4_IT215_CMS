@@ -1,12 +1,13 @@
 ----------------------------------------------------------
-Canteen: First Canteen
-ID: 1
+Canteen: third Canteen
+ID: 3
 ----------------------------------------------------------
 
 ITEM NAME------------------------------PRICE---QTY---TOTAL
 
-Margherita Pizza                         380    02     760
+Cheese Burger                             60    05     300
+Paneer Burger                             50    01      50
 ----------------------------------------------------------
-NET AMOUNT                                             760
+NET AMOUNT                                             350
 
 EOF

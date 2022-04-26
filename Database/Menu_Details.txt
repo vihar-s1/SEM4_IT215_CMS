@@ -1,9 +1,9 @@
 Canteen Index: 0
 Items Available: 4
 Spicy Ranch Pizza: 00350
-Margherita Pizza: 00380
+Margherita Pizza: 00100
 Hawaiian Pizza: 00420
-Dabeli: 00030
+Vadapav: 00020
 
 Canteen Index: 1
 Items Available: 5

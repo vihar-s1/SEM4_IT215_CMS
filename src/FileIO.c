@@ -43,7 +43,6 @@ void *load_canteen(void *args)
 
 void *save_canteen(void *args)
 {
-    printf("inside save_canteen\n");
     FILE *writer = fopen("../Database/Canteen_Details.txt", "w");
 
     for (int i = 0; i < 5; i++)

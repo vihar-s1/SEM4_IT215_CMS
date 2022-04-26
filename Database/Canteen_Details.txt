@@ -16,8 +16,8 @@ Canteen Number: 2
 ID: 3
 Name: third Canteen
 Password: 3
-Total Orders: 11
-Total Income: 550
+Total Orders: 17
+Total Income: 900
 
 Canteen Number: 3
 ID: 4

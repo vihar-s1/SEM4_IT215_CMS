@@ -74,7 +74,7 @@ void edit_menu(int can_no)
             break;
         case 2:
             display_menu(can_no);
-            printf("\ncan_no: %d\nEnter Item Number to change Price: ", can_no);
+            printf("%d\nEnter Item Number to change Price: ", can_no);
             scanf("%d", &no);
 
             if (no > 0 && no <= canteens[can_no - 1].items_avail)
