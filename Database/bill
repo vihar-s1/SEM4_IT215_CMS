@@ -1,12 +1,13 @@
 ----------------------------------------------------------
-Canteen: First Canteen
-ID: 1
+Canteen: third Canteen
+ID: 3
 ----------------------------------------------------------
 
 ITEM NAME------------------------------PRICE---QTY---TOTAL
 
-Spicy Ranch Pizza                        350    01     350
+Paneer Burger                             50    05     250
+Paneer Burger                             50    06     300
 ----------------------------------------------------------
-NET AMOUNT                                             350
+NET AMOUNT                                             550
 
 EOF
