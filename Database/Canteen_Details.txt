@@ -1,35 +1,35 @@
 Canteen Number: 0
 ID: 1
 Name: First Canteen
-Password: first_canteen@01
+Password: 1
 Total Orders: 0
 Total Income: 0
 
 Canteen Number: 1
 ID: 2
 Name: Second Canteen
-Password: second_canteen@02
+Password: 2
 Total Orders: 0
 Total Income: 0
 
 Canteen Number: 2
 ID: 3
 Name: third Canteen
-Password: third_canteen@03
+Password: 3
 Total Orders: 0
 Total Income: 0
 
 Canteen Number: 3
 ID: 4
 Name: Fourth Canteen
-Password: fourth_canteen@04
+Password: 4
 Total Orders: 0
 Total Income: 0
 
 Canteen Number: 4
 ID: 5
 Name: Fifth Canteen
-Password: fifth_canteen@05
+Password: 5
 Total Orders: 0
 Total Income: 0
 

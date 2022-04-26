@@ -1,13 +1,12 @@
 ----------------------------------------------------------
-Canteen: Second Canteen
-ID: 2
+Canteen: First Canteen
+ID: 1
 ----------------------------------------------------------
 
 ITEM NAME------------------------------PRICE---QTY---TOTAL
 
-Aloo Paratha                             120    01     120
-Veg Supreme Pizza                        370    03    1110
+Spicy Ranch Pizza                        350    01     350
 ----------------------------------------------------------
-NET AMOUNT                                            1230
+NET AMOUNT                                             350
 
 EOF

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <sys/wait.h>
 
 #include "Canteen.h"
 #include "Menu.h"
@@ -11,17 +12,18 @@ void (*old_SIGALRM)();
 
 void new_SIGALRM()
 {
-    printf("\nNo Response For Too Long!!!\nExiting...");
+    printf("\nSession Timed Out!!\n");
     return;
 }
 
+/*
 void allocate_memory()
 {
     for (int i = 0; i < 5; i++)
     {
         canteens[i] = (struct Canteen *)malloc(sizeof(struct Canteen));
         for (int j = 0; j < 100; j++)
-            canteens[i]->Menu[j] = (struct Menu_item *)malloc(sizeof(struct Menu_item));
+            canteens[i].Menu[j] = (struct Menu_item *)malloc(sizeof(struct Menu_item));
     }
 }
 
@@ -30,17 +32,19 @@ void free_memory()
     for (int i = 0; i < 5; i++)
     {
         for (int j = 0; j < 100; j++)
-            free(canteens[i]->Menu[j]);
+            free(canteens[i].Menu[j]);
         free(canteens[i]);
     }
 }
-
+*/
 long ID;
 char password[15];
 
 int main()
 {
-    allocate_memory();
+    old_SIGALRM = signal(SIGALRM, new_SIGALRM);
+
+    // allocate_memory();
     load_data();
     bool entry = true;
 
@@ -64,7 +68,7 @@ int main()
         printf("\n");
 
         if (choice == 0)
-            return 0;
+            break;
 
         int canteen_no, login;
 
@@ -75,7 +79,7 @@ int main()
             scanf("%ld", &ID);
             printf("Enter Password: ");
             scanf("%s", password);
-
+            getc(stdin);
             login = canteen_login(ID, password);
             if (login == -1)
             {
@@ -88,7 +92,7 @@ int main()
                 break;
             }
             else
-                run_canteen_ui(login);
+                run_canteen_ui(login + 1);
             break;
 
         case 2:
@@ -116,6 +120,10 @@ int main()
     }
 
     save_data();
-    free_memory();
+    // save_canteen(NULL);
+    // save_menu(NULL);
+    //  free_memory();
+
+    signal(SIGALRM, old_SIGALRM);
     return 0;
 }

@@ -20,9 +20,9 @@ int canteen_login(long ID, char *password)
 
     for (int i = 0; i < 5; i++)
     {
-        if (canteens[i]->ID == ID)
+        if (canteens[i].ID == ID)
         {
-            if (strcmp(canteens[i]->password, password) == 0)
+            if (strcmp(canteens[i].password, password) == 0)
                 return i;
             else
                 return -1;
@@ -31,7 +31,7 @@ int canteen_login(long ID, char *password)
     return -2;
 }
 
-void edit_menu_items(int can_no)
+void edit_menu(int can_no)
 {
     int n;
     do
@@ -39,20 +39,109 @@ void edit_menu_items(int can_no)
         printf("Enter 1 to edit an item's name\nEnter 2 to edit an item's price\nEnter 3 to remove an item\n");
         printf("Enter 4 to replace an item\nEnter 5 to add a new item\nEnter 6 to exit\nEnter your choice: ");
         scanf("%d", &n);
+
+        int no;
+
         switch (n)
         {
         case 1:
-            printf("Enter the item number whose name you want to edit: ");
-            int no;
+            display_menu(can_no);
+            printf("\nEnter the item number whose name you want to edit: ");
+
             scanf("%d", &no);
-            if (no > 0 && no <= canteens[can_no]->items_avail)
+            if (no > 0 && no <= canteens[can_no - 1].items_avail)
             {
+                printf("Enter New Name: ");
                 char new_name[40];
                 scanf("%s", new_name);
-                strcpy(canteens[can_no]->Menu[no - 1]->name, new_name);
+
+                int len = strlen(new_name);
+
+                for (int i = 0; i < len; i++)
+                    canteens[can_no - 1].Menu[no - 1].name[i] = new_name[i];
+                canteens[can_no - 1].Menu[no - 1].name[len] = '\0';
             }
             else
                 printf("Enter a valid item number\n");
+            break;
+        case 2:
+            display_menu(can_no);
+            printf("\ncan_no: %d\nEnter Item Number to change Price: ", can_no);
+            scanf("%d", &no);
+
+            if (no > 0 && no <= canteens[can_no - 1].items_avail)
+            {
+                printf("Enter New Price: ");
+                scanf("%d", &canteens[can_no - 1].Menu[no - 1].price);
+            }
+            else
+                printf("Enter a valid item number\n");
+            break;
+        case 3:
+            if (canteens[can_no - 1].items_avail == 0)
+            {
+                printf("No Menu Items Available!!\n");
+                break;
+            }
+            display_menu(can_no);
+            printf("Enter Item Number to delete: ");
+            scanf("%d", &no);
+
+            if (no > 0 && no <= canteens[can_no - 1].items_avail)
+            {
+                while (no < canteens[can_no - 1].items_avail)
+                {
+                    canteens[can_no - 1].Menu[no - 1] = canteens[can_no - 1].Menu[no];
+                    no++;
+                }
+                canteens[can_no - 1].items_avail--;
+            }
+            else
+                printf("Enter a valid item number\n");
+            break;
+        case 4:
+
+            display_menu(can_no);
+            printf("Enter Item Number to replace: ");
+            scanf("%d", &no);
+
+            if (no > 0 && no <= canteens[can_no - 1].items_avail)
+            {
+                printf("Enter Name: ");
+                char name[100];
+                scanf("%s", name);
+                getc(stdin);
+                strcpy(canteens[can_no - 1].Menu[no - 1].name, name);
+                printf("Enter Price: ");
+                scanf("%d", &canteens[can_no - 1].Menu[no - 1].price);
+                canteens[can_no - 1].Menu[no - 1].current_order = 0;
+                canteens[can_no - 1].Menu[no - 1].total_order = 0;
+            }
+            else
+                printf("Enter a valid item number\n");
+            break;
+        case 5:
+            if (canteens[can_no - 1].items_avail != 100)
+            {
+                no = canteens[can_no - 1].items_avail;
+                printf("Enter Name: ");
+                char name[100];
+                scanf("%s", name);
+                getc(stdin);
+                strcpy(canteens[can_no - 1].Menu[no].name, name);
+                printf("Enter Price: ");
+                scanf("%d", &canteens[can_no - 1].Menu[no].price);
+                canteens[can_no - 1].Menu[no].current_order = 0;
+                canteens[can_no - 1].Menu[no].total_order = 0;
+                canteens[can_no - 1].items_avail++;
+            }
+            else
+                printf("Maximum Capacity for Menu(100 items) reached!!\n");
+            break;
+        case 6:
+            break;
+        default:
+            printf("Invalid Choice!! Try Again!!\n");
             break;
         }
     } while (n != 6);
@@ -63,7 +152,7 @@ void order(int can_no)
     create_bill(can_no);
     display_menu(can_no);
     int order_more = YES;
-    int item_avail = canteens[can_no - 1]->items_avail;
+    int item_avail = canteens[can_no - 1].items_avail;
     do
     {
         int item_no;
@@ -100,10 +189,10 @@ void order(int can_no)
 
     FILE *bill = fopen("../Database/bill", "a");
     int total = 0;
-    for (int i = 0; i < canteens[can_no - 1]->items_avail; i++)
+    for (int i = 0; i < canteens[can_no - 1].items_avail; i++)
     {
-        total += canteens[can_no - 1]->Menu[i]->current_order * canteens[can_no - 1]->Menu[i]->price;
-        canteens[can_no - 1]->Menu[i]->current_order = 0;
+        total += canteens[can_no - 1].Menu[i].current_order * canteens[can_no - 1].Menu[i].price;
+        canteens[can_no - 1].Menu[i].current_order = 0;
     }
 
     fprintf(bill, "----------------------------------------------------------\n%-49s    %5d\n\nEOF", "NET AMOUNT", total);
@@ -140,10 +229,10 @@ void run_canteen_ui(int can_no)
         switch (choice)
         {
         case 1:
-            printf("Total Orders: %ld\nTotal Income: %ld\n", canteens[can_no - 1]->total_orders, canteens[can_no - 1]->total_income);
+            printf("Total Orders: %ld\nTotal Income: %ld\n", canteens[can_no - 1].total_orders, canteens[can_no - 1].total_income);
             break;
         case 2:
-            edit_menu_items(can_no);
+            edit_menu(can_no);
             break;
         default:
             printf("Incorrect Choice!! Try Again!\n");
