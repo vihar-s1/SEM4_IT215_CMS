@@ -12,10 +12,10 @@ void display_menu(int canteen_no) //. canteen_no from 1 to 5
 {
     if (canteen_no > 0 && canteen_no <= 5)
     {
-        printf("%s\n\n", canteens[canteen_no - 1].name);
-        for (int i = 0; i < canteens[canteen_no - 1].items_avail; i++)
+        printf("%s\n\n", canteens[canteen_no - 1]->name);
+        for (int i = 0; i < canteens[canteen_no - 1]->items_avail; i++)
         {
-            printf("%d. %40s \t %3.2d\n", i + 1, canteens[canteen_no - 1].Menu[i].name, canteens[canteen_no - 1].Menu[i].price);
+            printf("%d. %-40s \t %3.2d\n", i + 1, canteens[canteen_no - 1]->Menu[i]->name, canteens[canteen_no - 1]->Menu[i]->price);
         }
     }
 }
@@ -24,11 +24,12 @@ void create_bill(int can_no)
 {
     if (0 >= can_no || can_no > 5)
         return;
+
     FILE *bill = fopen("../Database/bill", "w");
-    fprintf(bill, "--------------------------------------------------\n");
-    fprintf(bill, "Canteen: %s\nID: %ld\n", canteens[can_no - 1].name, canteens[can_no - 1].ID);
-    fprintf(bill, "--------------------------------------------------\n\n");
-    fprintf(bill, "ITEM NAME------------------------------PRICE---QTY\n\n");
+    fprintf(bill, "----------------------------------------------------------\n");
+    fprintf(bill, "Canteen: %s\nID: %ld\n", canteens[can_no - 1]->name, canteens[can_no - 1]->ID);
+    fprintf(bill, "----------------------------------------------------------\n\n");
+    fprintf(bill, "ITEM NAME------------------------------PRICE---QTY---TOTAL\n\n");
 
     fclose(bill);
 }
@@ -36,14 +37,15 @@ void create_bill(int can_no)
 void add_to_bill(int can_no, int it_no, int qty)
 {
     FILE *bill = fopen("../Database/bill", "ab");
-    struct Canteen *current = &canteens[can_no - 1];
-    fprintf(bill, "%-40s %03d    %02d\n", current->Menu[it_no - 1].name, current->Menu[it_no - 1].price, qty);
+
+    int price = canteens[can_no - 1]->Menu[it_no - 1]->price;
+    fprintf(bill, "%-40s %3d    %02d   %5d\n", canteens[can_no - 1]->Menu[it_no - 1]->name, price, qty, price * qty);
     getc(stdin);
 
-    current->total_orders += qty;
-    current->total_income += (qty * current->Menu[it_no - 1].price);
-    current->Menu[it_no].current_order += qty;
-    current->Menu[it_no].total_order += qty;
+    canteens[can_no - 1]->total_orders += qty;
+    canteens[can_no - 1]->total_income += qty * price;
+    canteens[can_no - 1]->Menu[it_no - 1]->current_order += qty;
+    canteens[can_no - 1]->Menu[it_no - 1]->total_order += qty;
 
     fclose(bill);
 }

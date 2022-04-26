@@ -11,8 +11,8 @@
 
 /*
 . returns -1 if invalid password
-. returns  1 if invalid ID
-. returns  0 for valid ID and Password
+. returns -2 if invalid ID
+. returns  index for valid ID and Password
 */
 int canteen_login(long ID, char *password)
 {
@@ -20,15 +20,15 @@ int canteen_login(long ID, char *password)
 
     for (int i = 0; i < 5; i++)
     {
-        if (canteens[i].ID == ID)
+        if (canteens[i]->ID == ID)
         {
-            if (strcmp(canteens[i].password, password) == 0)
-                return 0;
+            if (strcmp(canteens[i]->password, password) == 0)
+                return i;
             else
                 return -1;
         }
     }
-    return 1;
+    return -2;
 }
 
 void edit_menu_items(int can_no)
@@ -45,11 +45,11 @@ void edit_menu_items(int can_no)
             printf("Enter the item number whose name you want to edit: ");
             int no;
             scanf("%d", &no);
-            if (no > 0 && no <= canteens[can_no].items_avail)
+            if (no > 0 && no <= canteens[can_no]->items_avail)
             {
                 char new_name[40];
                 scanf("%s", new_name);
-                strcpy(canteens[can_no].Menu[no - 1].name, new_name);
+                strcpy(canteens[can_no]->Menu[no - 1]->name, new_name);
             }
             else
                 printf("Enter a valid item number\n");
@@ -63,7 +63,7 @@ void order(int can_no)
     create_bill(can_no);
     display_menu(can_no);
     int order_more = YES;
-    int item_avail = canteens[can_no - 1].items_avail;
+    int item_avail = canteens[can_no - 1]->items_avail;
     do
     {
         int item_no;
@@ -100,14 +100,54 @@ void order(int can_no)
 
     FILE *bill = fopen("../Database/bill", "a");
     int total = 0;
-    for (int i = 0; i < canteens[can_no - 1].items_avail; i++)
+    for (int i = 0; i < canteens[can_no - 1]->items_avail; i++)
     {
-        total += canteens[can_no - 1].Menu[i].current_order * canteens[can_no - 1].Menu[i].price;
-        canteens[can_no - 1].Menu[i].current_order = 0;
+        total += canteens[can_no - 1]->Menu[i]->current_order * canteens[can_no - 1]->Menu[i]->price;
+        canteens[can_no - 1]->Menu[i]->current_order = 0;
     }
 
-    fprintf(bill, "--------------------------------------------\n%-43s    %d\n\nEOF", "TOTAL", total);
+    fprintf(bill, "----------------------------------------------------------\n%-49s    %5d\n\nEOF", "NET AMOUNT", total);
     fclose(bill);
 
     getc(stdin);
+}
+
+void run_canteen_ui(int can_no)
+{
+    while (1)
+    {
+        getc(stdin);
+        printf("\nPress Enter To Continue...");
+        getc(stdin);
+
+        system("clear");
+        printf("__________________________________________\n\n");
+        printf("         WELCOME TO DNS CANTEEN UI        \n");
+        printf("__________________________________________\n\n");
+        printf("            Enter 0 to logout             \n");
+        printf(" Enter 1 to view total orders and income  \n");
+        printf("          Enter 2 to Edit Menu            \n");
+        printf("__________________________________________\n");
+
+        printf("\nYour Choice: ");
+        int choice;
+        scanf("%d", &choice);
+        printf("\n");
+
+        if (choice == 0)
+            return;
+
+        switch (choice)
+        {
+        case 1:
+            printf("Total Orders: %ld\nTotal Income: %ld\n", canteens[can_no - 1]->total_orders, canteens[can_no - 1]->total_income);
+            break;
+        case 2:
+            edit_menu_items(can_no);
+            break;
+        default:
+            printf("Incorrect Choice!! Try Again!\n");
+            break;
+        }
+    }
 }

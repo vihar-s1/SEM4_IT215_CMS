@@ -13,6 +13,7 @@ void display_menu(int);
 
 void create_bill(int);
 void add_to_bill(int, int, int);
+void get_bill(int);
 void print_bill();
 
 #endif // MENU_H
