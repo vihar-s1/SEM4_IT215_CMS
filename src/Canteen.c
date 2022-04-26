@@ -36,14 +36,22 @@ void edit_menu(int can_no)
     int n;
     do
     {
+        getc(stdin);
+        printf("\nPress Enter to Continue...");
+        getc(stdin);
+        system("clear");
+        printf("Enter 0 to view menu\n");
         printf("Enter 1 to edit an item's name\nEnter 2 to edit an item's price\nEnter 3 to remove an item\n");
         printf("Enter 4 to replace an item\nEnter 5 to add a new item\nEnter 6 to exit\nEnter your choice: ");
         scanf("%d", &n);
 
         int no;
-
+        printf("\n");
         switch (n)
         {
+        case 0:
+            display_menu(can_no);
+            break;
         case 1:
             display_menu(can_no);
             printf("\nEnter the item number whose name you want to edit: ");
@@ -71,20 +79,20 @@ void edit_menu(int can_no)
 
             if (no > 0 && no <= canteens[can_no - 1].items_avail)
             {
-                printf("Enter New Price: ");
+                printf("\nEnter New Price: ");
                 scanf("%d", &canteens[can_no - 1].Menu[no - 1].price);
             }
             else
-                printf("Enter a valid item number\n");
+                printf("\nEnter a valid item number\n");
             break;
         case 3:
             if (canteens[can_no - 1].items_avail == 0)
             {
-                printf("No Menu Items Available!!\n");
+                printf("\nNo Menu Items Available!!\n");
                 break;
             }
-            display_menu(can_no);         // display menu of various canteen 
-            printf("Enter Item Number to delete: ");
+            display_menu(can_no);
+            printf("\nEnter Item Number to delete: ");
             scanf("%d", &no);
 
             if (no > 0 && no <= canteens[can_no - 1].items_avail)

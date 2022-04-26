@@ -16,27 +16,6 @@ void new_SIGALRM()
     return;
 }
 
-/*
-void allocate_memory()
-{
-    for (int i = 0; i < 5; i++)
-    {
-        canteens[i] = (struct Canteen *)malloc(sizeof(struct Canteen));
-        for (int j = 0; j < 100; j++)
-            canteens[i].Menu[j] = (struct Menu_item *)malloc(sizeof(struct Menu_item));
-    }
-}
-
-void free_memory()
-{
-    for (int i = 0; i < 5; i++)
-    {
-        for (int j = 0; j < 100; j++)
-            free(canteens[i].Menu[j]);
-        free(canteens[i]);
-    }
-}
-*/
 long ID;
 char password[15];
 
@@ -44,7 +23,6 @@ int main()
 {
     old_SIGALRM = signal(SIGALRM, new_SIGALRM);
 
-    // allocate_memory();
     load_data();
     bool entry = true;
 
@@ -80,7 +58,7 @@ int main()
             scanf("%ld", &ID);
             printf("Enter Password: ");
             scanf("%s", password);
-            getc(stdin);
+
             login = canteen_login(ID, password);
             if (login == -1)                    // for invalid password 
             {
@@ -120,10 +98,7 @@ int main()
         }
     }
 
-    save_data();     // saves all data of the canteen 
-    // save_canteen(NULL);
-    // save_menu(NULL);
-    //  free_memory();
+    save_data();
 
     signal(SIGALRM, old_SIGALRM);
     return 0;

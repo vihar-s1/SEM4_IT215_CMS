@@ -12,7 +12,7 @@ Aloo Paratha: 00120
 
 Canteen Index: 2
 Items Available: 3
-Paneer Paratha: 00170
+xyx: 03232
 Paneer Burger: 00050
 Momo Burger: 00050
 
