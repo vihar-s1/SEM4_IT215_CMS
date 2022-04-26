@@ -157,8 +157,8 @@ void edit_menu(int can_no)
 
 void order(int can_no)
 {
-    create_bill(can_no);
-    display_menu(can_no);
+    create_bill(can_no);    // create canteen bill for various canteen 
+    display_menu(can_no);    // display all menu of various canteen 
     int order_more = YES;
     int item_avail = canteens[can_no - 1].items_avail;
     do
@@ -184,7 +184,7 @@ void order(int can_no)
             printf("Ivalid quantity. Enter between 1 and 50 inclusive!!\n");
         } while (1);
 
-        add_to_bill(can_no, item_no, qty);
+        add_to_bill(can_no, item_no, qty);   // add items to bill 
 
         printf("Do you want to order more? Y/N: ");
         char ch;
@@ -240,7 +240,7 @@ void run_canteen_ui(int can_no)
             printf("Total Orders: %ld\nTotal Income: %ld\n", canteens[can_no - 1].total_orders, canteens[can_no - 1].total_income);
             break;
         case 2:
-            edit_menu(can_no);
+            edit_menu(can_no);    // edit canteen's order menu 
             break;
         default:
             printf("Incorrect Choice!! Try Again!\n");
