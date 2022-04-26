@@ -1,26 +1,32 @@
 Canteen Index: 0
-Items Available: 3
+Items Available: 5
 Spicy Ranch Pizza: 00350
 Margherita Pizza: 00380
 Hawaiian Pizza: 00420
+Vadapav: 00020
+Dabeli: 00030
 
 Canteen Index: 1
-Items Available: 3
+Items Available: 5
 Veg Supreme Pizza: 00370
 Gobi Paratha: 00150
 Aloo Paratha: 00120
+Maggi: 00030
+Chole Bhature: 00080
 
 Canteen Index: 2
-Items Available: 3
-xyx: 03232
+Items Available: 4
+Paneer Paratha: 00050
 Paneer Burger: 00050
 Momo Burger: 00050
+Cheese Burger: 00060
 
 Canteen Index: 3
-Items Available: 3
+Items Available: 4
 Club Sandwich: 00050
 Paneer Sandwich: 00060
 Falafel Sandwich: 00070
+Frankie: 00040
 
 Canteen Index: 4
 Items Available: 4

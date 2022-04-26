@@ -8,21 +8,11 @@
 #include "Menu.h"
 #include "FileIO.h"
 
-void (*old_SIGALRM)();
-
-void new_SIGALRM()
-{
-    printf("\nSession Timed Out!!\n");
-    return;
-}
-
 long ID;
 char password[15];
 
 int main()
 {
-    old_SIGALRM = signal(SIGALRM, new_SIGALRM);
-
     load_data();
     bool entry = true;
 
@@ -99,6 +89,5 @@ int main()
 
     save_data();
 
-    signal(SIGALRM, old_SIGALRM);
     return 0;
 }
