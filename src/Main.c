@@ -67,10 +67,11 @@ int main()
         scanf("%d", &choice);
         printf("\n");
 
-        if (choice == 0)
+        if (choice == 0)          
             break;
 
-        int canteen_no, login;
+        int canteen_no, login;            // canteen no for various canteen
+
 
         switch (choice)
         {
@@ -81,18 +82,18 @@ int main()
             scanf("%s", password);
             getc(stdin);
             login = canteen_login(ID, password);
-            if (login == -1)
+            if (login == -1)                    // for invalid password 
             {
-                printf("\nInvalid Password Entered!! Try Again!!\n");
+                printf("\nInvalid Password Entered!! Try Again!!\n");        
                 break;
             }
-            else if (login == -2)
+            else if (login == -2)               // for  login id 
             {
                 printf("\nInvalid User ID!! Try Again!!\n");
                 break;
             }
             else
-                run_canteen_ui(login + 1);
+                run_canteen_ui(login + 1);            // running using canteen user interface
             break;
 
         case 2:
@@ -101,7 +102,7 @@ int main()
 
             if (1 <= canteen_no && canteen_no <= 5)
             {
-                order(canteen_no);
+                order(canteen_no);                           // function for various canteen selection 
                 printf("\nPress Enter To Display Bill...");
                 getc(stdin);
                 print_bill();
@@ -119,7 +120,7 @@ int main()
         }
     }
 
-    save_data();
+    save_data();     // saves all data of the canteen 
     // save_canteen(NULL);
     // save_menu(NULL);
     //  free_memory();

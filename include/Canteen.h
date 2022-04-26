@@ -19,10 +19,10 @@ struct Canteen
 // canteen[i] -> ith canteen
 struct Canteen canteens[5];
 
-void edit_menu(int);
-int canteen_login(long, char *);
-void order(int);
+void edit_menu(int); // edits menu 
+int canteen_login(long, char *);  // login to canteeen 
+void order(int); // order 
 
-void run_canteen_ui(int);
+void run_canteen_ui(int); //runs canteen user interface
 
 #endif // CANTEEN_H
