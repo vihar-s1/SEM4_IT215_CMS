@@ -55,13 +55,13 @@ int main()
                 printf("\nInvalid Password Entered!! Try Again!!\n");        
                 break;
             }
-            else if (login == -2)               // for  login id 
+            else if (login == -2) // for  login id
             {
                 printf("\nInvalid User ID!! Try Again!!\n");
                 break;
             }
             else
-                run_canteen_ui(login + 1);            // running using canteen user interface
+                run_canteen_ui(login + 1); // running using canteen user interface
             break;
 
         case 2:

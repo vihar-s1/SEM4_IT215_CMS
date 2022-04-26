@@ -43,13 +43,13 @@ void add_to_bill(int can_no, int it_no, int qty)
     int price = canteens[can_no - 1].Menu[it_no - 1].price;
     fprintf(bill, "%-40s %3d    %02d   %5d\n", canteens[can_no - 1].Menu[it_no - 1].name, price, qty, price * qty);
     getc(stdin);
-    printf("%d %d \n", qty, price);
+    
 
     canteens[can_no - 1].total_orders += qty;
     canteens[can_no - 1].total_income += qty * price;
     canteens[can_no - 1].Menu[it_no - 1].current_order += qty;
     canteens[can_no - 1].Menu[it_no - 1].total_order += qty;
-    printf("AFTER\n");
+    
     fclose(bill);
 }
 
