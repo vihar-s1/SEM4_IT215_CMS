@@ -2,6 +2,7 @@
 #define CANTEEN_H
 
 #include "Menu.h"
+#define SLEEP_TIME 10
 
 struct Canteen
 {

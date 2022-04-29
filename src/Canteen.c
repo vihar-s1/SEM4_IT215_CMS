@@ -43,7 +43,19 @@ void edit_menu(int can_no)
         printf("Enter 0 to view menu\n");
         printf("Enter 1 to edit an item's name\nEnter 2 to edit an item's price\nEnter 3 to remove an item\n");
         printf("Enter 4 to replace an item\nEnter 5 to add a new item\nEnter 6 to exit\nEnter your choice: ");
-        scanf("%d", &n);
+
+        /*childpid = fork();
+        if (childpid != 0)
+        {*/
+            scanf("%d", &n);
+            /*kill(childpid, SIGKILL);
+        }
+        else
+        {
+            sleep(SLEEP_TIME);
+            kill(getppid(), SIGALRM);
+            exit(0);
+        }*/
 
         int no;
         printf("\n");
@@ -54,14 +66,37 @@ void edit_menu(int can_no)
             break;
         case 1:
             display_menu(can_no);
-            printf("\nEnter the item number whose name you want to edit: ");
+            
+            /*childpid = fork();
+            if (childpid != 0)
+            {*/
+                printf("\nEnter the item number whose name you want to edit: ");
+                scanf("%d", &no);
+            /*kill(childpid, SIGKILL);
+            }
+            else
+            {
+                sleep(SLEEP_TIME);
+                kill(getppid(), SIGALRM);
+                exit(0);
+            }*/
 
-            scanf("%d", &no);
             if (no > 0 && no <= canteens[can_no - 1].items_avail)
             {
-                printf("Enter New Name: ");
-                char new_name[40];
-                scanf("%s", new_name);
+                /*childpid = fork();
+                if (childpid != 0)
+                {*/
+                    printf("Enter New Name: ");
+                    char new_name[40];
+                    scanf("%s", new_name);
+                    /*kill(childpid, SIGKILL);
+                }
+                else
+                {
+                    sleep(SLEEP_TIME);
+                    kill(getppid(), SIGALRM);
+                    exit(0);
+                }*/
 
                 int len = strlen(new_name);
 
@@ -74,13 +109,36 @@ void edit_menu(int can_no)
             break;
         case 2:
             display_menu(can_no);
-            printf("%d\nEnter Item Number to change Price: ", can_no);
-            scanf("%d", &no);
+
+            /*childpid = fork();
+            if (childpid != 0)
+            {*/
+                printf("%d\nEnter Item Number to change Price: ", can_no);
+                scanf("%d", &no);
+                /*kill(childpid, SIGKILL);
+            }
+            else
+            {
+                sleep(SLEEP_TIME);
+                kill(getppid(), SIGALRM);
+                exit(0);
+            }*/
 
             if (no > 0 && no <= canteens[can_no - 1].items_avail)
             {
-                printf("\nEnter New Price: ");
-                scanf("%d", &canteens[can_no - 1].Menu[no - 1].price);
+                /*childpid = fork();
+                if (childpid != 0)
+                {*/
+                    printf("\nEnter New Price: ");
+                    scanf("%d", &canteens[can_no - 1].Menu[no - 1].price);
+                    /*kill(childpid, SIGKILL);
+                }
+                else
+                {
+                    sleep(SLEEP_TIME);
+                    kill(getppid(), SIGALRM);
+                    exit(0);
+                }*/
             }
             else
                 printf("\nEnter a valid item number\n");
@@ -92,8 +150,20 @@ void edit_menu(int can_no)
                 break;
             }
             display_menu(can_no);
-            printf("\nEnter Item Number to delete: ");
-            scanf("%d", &no);
+            
+            /*childpid = fork();
+            if (childpid != 0)
+            {*/
+                printf("\nEnter Item Number to delete: ");
+                scanf("%d", &no);
+                /*kill(childpid, SIGKILL);
+            }
+            else
+            {
+                sleep(SLEEP_TIME);
+                kill(getppid(), SIGALRM);
+                exit(0);
+            }*/
 
             if (no > 0 && no <= canteens[can_no - 1].items_avail)
             {
@@ -107,21 +177,45 @@ void edit_menu(int can_no)
             else
                 printf("Enter a valid item number\n");
             break;
-        case 4:
 
+        case 4:
             display_menu(can_no);
-            printf("Enter Item Number to replace: ");
-            scanf("%d", &no);
+
+            /*childpid = fork();
+            if (childpid != 0)
+            {*/
+                printf("Enter Item Number to replace: ");
+                scanf("%d", &no);
+                /*kill(childpid, SIGKILL);
+            }
+            else
+            {
+                sleep(SLEEP_TIME);
+                kill(getppid(), SIGALRM);
+                exit(0);
+            }*/
 
             if (no > 0 && no <= canteens[can_no - 1].items_avail)
             {
-                printf("Enter Name: ");
-                char name[100];
-                scanf("%s", name);
-                getc(stdin);
-                strcpy(canteens[can_no - 1].Menu[no - 1].name, name);
-                printf("Enter Price: ");
-                scanf("%d", &canteens[can_no - 1].Menu[no - 1].price);
+                /*childpid = fork();
+                if (childpid != 0)
+                {*/
+                    printf("Enter Name: ");
+                    char name[100];
+                    scanf("%s", name);
+                    getc(stdin);
+                    strcpy(canteens[can_no - 1].Menu[no - 1].name, name);
+                    printf("Enter Price: ");
+                    scanf("%d", &canteens[can_no - 1].Menu[no - 1].price);
+                    /*kill(childpid, SIGKILL);
+                }
+                else
+                {
+                    sleep(SLEEP_TIME);
+                    kill(getppid(), SIGALRM);
+                    exit(0);
+                }*/
+
                 canteens[can_no - 1].Menu[no - 1].current_order = 0;
                 canteens[can_no - 1].Menu[no - 1].total_order = 0;
             }
@@ -132,13 +226,24 @@ void edit_menu(int can_no)
             if (canteens[can_no - 1].items_avail != 100)
             {
                 no = canteens[can_no - 1].items_avail;
-                printf("Enter Name: ");
-                char name[100];
-                scanf("%s", name);
-                getc(stdin);
-                strcpy(canteens[can_no - 1].Menu[no].name, name);
-                printf("Enter Price: ");
-                scanf("%d", &canteens[can_no - 1].Menu[no].price);
+                /*childpid = fork();
+                if (childpid != 0)
+                {*/
+                    printf("Enter Name: ");
+                    char name[100];
+                    scanf("%s", name);
+                    getc(stdin);
+                    strcpy(canteens[can_no - 1].Menu[no].name, name);
+                    printf("Enter Price: ");
+                    scanf("%d", &canteens[can_no - 1].Menu[no].price);
+                    /*kill(childpid, SIGKILL);
+                }
+                else
+                {
+                    sleep(SLEEP_TIME);
+                    kill(getppid(), SIGALRM);
+                    exit(0);
+                }*/
                 canteens[can_no - 1].Menu[no].current_order = 0;
                 canteens[can_no - 1].Menu[no].total_order = 0;
                 canteens[can_no - 1].items_avail++;
@@ -177,8 +282,20 @@ void order(int can_no)
         int qty;
         do
         {
-            printf("\nEnter Quantity: ");
-            scanf("%d", &qty);
+            /*childpid = fork();
+            if (childpid != 0)
+            {*/
+                printf("\nEnter Quantity: ");
+                scanf("%d", &qty);
+                /*kill(childpid, SIGKILL);
+            }
+            else
+            {
+                sleep(SLEEP_TIME);
+                kill(getppid(), SIGALRM);
+                exit(0);
+            }*/
+
             if (0 < qty && qty < 51)
                 break;
             printf("Ivalid quantity. Enter between 1 and 50 inclusive!!\n");
@@ -186,9 +303,20 @@ void order(int can_no)
 
         add_to_bill(can_no, item_no, qty); // add items to bill
 
-        printf("Do you want to order more? Y/N: ");
-        char ch;
-        scanf("%c", &ch);
+        /*childpid = fork();
+        if (childpid != 0)
+        {*/
+            printf("Do you want to order more? Y/N: ");
+            char ch;
+            scanf("%c", &ch);
+            /*kill(childpid, SIGKILL);
+        }
+        else
+        {
+            sleep(SLEEP_TIME);
+            kill(getppid(), SIGALRM);
+            exit(0);
+        }*/
 
         if (ch == 'N' || ch == 'n')
             order_more = NO;
